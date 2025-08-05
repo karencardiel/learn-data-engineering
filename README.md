@@ -100,7 +100,10 @@ Follow these steps to run the project on your local machine.
 └── requirements.txt
 ```
 
+## 📌 Credits
+- Logo designed by **Diego González**
+
 ## <img src="https://slackmojis.com/emojis/220-bananadance/download" width="35" /> Notes
-This program was developed as part of an academic project. 
+ This program was developed as part of an academic project. 
 
 ⭐ **Star this repository if you find it helpful!**
