@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} Resource</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" sizes="64x64" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+
+</head>
+<body>
+    <div class="container">
+        <h1>{{ action }} Resource</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="{{ resource[1] if resource else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4">{{ resource[2] if resource else '' }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="link">Link</label>
+                <input type="url" id="link" name="link" value="{{ resource[4] if resource else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type (example: Tool, Book, Online Course)</label>
+                <input type="text" id="type" name="type" value="{{ resource[3] if resource else '' }}">
+            </div>
+            <div class="form-group">
+                <label for="level">Level (example: Beginner, Intermediate, Advanced)</label>
+                <input type="text" id="level" name="level" value="{{ resource[6] if resource else '' }}">
+            </div>
+            <div class="form-group">
+                <label for="technologies">Technologies (comma separated)</label>
+                <input type="text" id="technologies" name="technologies" value="{{ resource[5]|join(', ') if resource else '' }}">
+            </div>
+            <button type="submit" class="btn-primary">{{ action }} Resource</button>
+        </form>
+        <br>
+        <a href="{{ url_for('admin_panel') }}">Cancel</a>
+    </div>
+</body>
+</html>

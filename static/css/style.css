@@ -1,0 +1,510 @@
+:root {
+    --primary-color: #4A47A3;    /* Morado oscuro del espacio y el anillo exterior */
+    --accent-color: #F3B95F;     /* Dorado/Amarillo del anillo interior y el atardecer */
+    
+    --background-color: #F5F5FA;  /* Un fondo blanco-lila muy sutil */
+    --card-background: #FFFFFF;   /* Blanco puro para las tarjetas */
+    
+    --text-color: #1E1E2E;      /* Negro azulado, como el espacio profundo */
+    --subtle-text: #6A6A8B;     /* Un gris-morado para texto secundario */
+    --border-color: #E4E3EB;    /* Un borde suave que combina con el fondo */
+
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- Estilos para el Header --- */
+
+.logo-title-container {
+  display: flex;          /* Usa Flexbox para alinear los elementos en línea */
+  align-items: center;    /* Centra verticalmente el logo con el título */
+  gap: 15px;              /* Crea un espacio de 15px entre el logo y el título */
+}
+
+.main-header .container {
+  display: flex;
+  flex-direction: column; /* Apila los elementos (el bloque logo-título y el párrafo) */
+  align-items: center;   /* Centra horizontalmente todo el bloque apilado */
+    
+}
+
+.header-logo {
+  height:70px;           /* Ajusta la altura del logo. ¡Cámbialo a tu gusto! */
+  width: auto;            /* El ancho se ajusta automáticamente para no deformar la imagen */
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #111827; /* Un gris azulado muy oscuro */
+    color: #E5E7EB; /* Un color de texto claro por defecto */
+    margin: 0;
+    line-height: 1.6;
+      /* Gradiente animado con los colores de tu paleta */
+  background: linear-gradient(315deg, var(--primary-color) 3%, #60a5fa 38%, var(--accent-color) 68%, var(--text-color) 98%);
+  animation: gradient 30s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed; 
+}
+
+body {  
+  /* Gradiente animado con los colores de tu paleta */
+  background: linear-gradient(315deg, var(--primary-color) 3%, #60a5fa 38%, var(--accent-color) 68%, var(--text-color) 98%);
+  animation: gradient 60s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed; /* Fija el fondo para que no se mueva con el scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-header {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.main-header h1 { 
+    margin: 0; 
+    font-size: 2.5rem;
+    color: black;
+}
+.main-header p { font-size: 1.1rem; color: var(--subtle-text); margin-top: 8px; }
+
+.filters-toolbar {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
+
+.filter-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; align-items: center; }
+.filter-label { margin-right: 10px; font-weight: 600; color: var(--subtle-text); }
+.filter-button {
+    background-color: #E5E7EB;
+    color: #374151;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.filter-button:hover { background-color: #D1D5DB; }
+.filter-button.active { 
+  background-color: var(--accent-color); /* Usamos el dorado para el botón activo */
+  color: var(--text-color); /* Texto oscuro para mejor contraste con el dorado */
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+.card-title a { text-decoration: none; color: var(--text-color); font-size: 1.25rem; }
+.card-title a:hover, .main-footer a:hover {
+  color: var(--accent-color); /* El enlace se vuelve dorado al pasar el mouse */
+}
+.card-description { color: var(--subtle-text); font-size: 0.95rem; flex-grow: 1; }
+.card-footer, .technologies { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { padding: 4px 12px; border-radius: 16px; font-size: 0.8rem; font-weight: 600; }
+.type-tag { background-color: #DBEAFE; color: #1E40AF; }
+.level-tag.level-beginner { background-color: #D1FAE5; color: #065F46; }
+.level-tag.level-intermediate { background-color: #FEF3C7; color: #92400E; }
+.level-tag.level-advanced { background-color: #FEE2E2; color: #991B1B; }
+.tech-tag { background-color: #E0E7FF; color: #3730A3; }
+
+.main-footer { text-align: center; padding: 40px 20px; margin-top: 40px; color: var(--subtle-text); }
+
+
+/* --- Rediseño del Panel de Administración --- */
+
+/* La tarjeta principal que contendrá todo */
+.admin-container {
+  background-color: #111827; /* El mismo fondo oscuro del formulario */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 1100px; /* Ancho máximo para la tarjeta */
+  margin: 50px auto; /* Centra la tarjeta en la página */
+}
+
+/* Título del panel */
+.admin-container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.add-resource-btn, .btn-primary {
+  display: inline-block;
+  padding: 12px 28px; /* Un poco más de padding para que respire */
+  border-radius: 8px;
+  border: none; /* Nos aseguramos de que no haya borde */
+  font-family: var(--font-family);
+
+  /* Gradiente sutil usando tu color primario y uno un poco más oscuro */
+  background: linear-gradient(45deg, var(--primary-color), #3a388a); 
+  
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px; /* Un poco de espacio entre letras */
+  
+  /* Sombra para darle profundidad y hacerlo "flotar" */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+  /* Transición suave para todos los cambios */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- Efectos Interactivos --- */
+
+/* Al pasar el mouse por encima */
+.add-resource-btn:hover, .btn-primary:hover {
+  /* El botón se "levanta" un poco */
+  transform: translateY(-3px);
+  /* La sombra se hace un poco más grande para acentuar el efecto */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Al hacer clic en el botón */
+.add-resource-btn:active, .btn-primary:active {
+  /* El botón se "hunde" para dar feedback de que fue presionado */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+/* Estilo para las etiquetas (Name, Description, etc.) */
+.form-group label {
+  color: #E4E3EB;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Estilo para los campos de texto */
+.form-group input, .form-group textarea {
+  background: rgba(0, 0, 0, 0.2); /* Fondo oscuro semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  /* Al hacer clic, resalta el borde con el color primario */
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 71, 163, 0.5);
+}
+
+/* Enlace de 'Cancel' */
+.cancel-link {
+  color: #E4E3EB;
+  text-align: center;
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Ajustes para que la tabla se integre en la tarjeta */
+.admin-table {
+  width: 100%;
+  border-collapse: separate; /* Clave para poder dar espacio entre filas */
+  border-spacing: 0 0.5rem; /* Espacio vertical de 1rem entre cada fila */
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 0 10px 10px 10px;
+  color: white; /* Gris claro, como las etiquetas del formulario */
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 3px solid rgb(192, 191, 191); /* Subrayado para la cabecera */
+}
+
+.admin-table td {
+  background: rgba(0, 0, 0, 0.2); /* Fondo muy oscuro y sutil para cada fila */
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde inferior blanco muy sutil */
+}
+
+.admin-table td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.admin-table td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* 5. Enlace para volver */
+.back-link {
+    display: block;
+    margin-top: 3rem;
+    text-align: center;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none; /* La última fila no necesita separador */
+}
+
+.action-links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.actions-column {
+  width: 1px; 
+   text-align: center; 
+}
+
+.action-links a,
+.action-links button {
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 16px; 
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.action-links a:hover,
+.action-links button:hover {
+  opacity: 0.8;
+}
+
+/* --- Base para todos los botones --- */
+.action-links .btn-secondary {
+  background-color: #7e7e7f; /* Un tono de morado/azul más intenso */
+color: white; /* Texto blanco para contraste */
+border-radius: 6px; /* Un poco menos redondeado */
+padding: 6px 12px;
+font-weight: 500; /* Ligeramente menos bold */
+font-size: 0.8rem;
+text-decoration: none; /* Asegurarse de que no haya subrayado */
+}
+
+.action-links .btn-secondary:hover {
+background-color: #1d3a99; /* Un tono aún más oscuro al pasar el mouse */
+}
+
+.action-links .btn-delete {
+background-color: #717070; 
+color: white;
+border-radius: 6px;
+padding: 6px 12px;
+font-weight: 500;
+font-size: 0.8rem;
+text-decoration: none;
+}
+
+.action-links .btn-delete:hover {
+background-color: #8f2020; /* Un tono más oscuro al pasar el mouse */
+}
+/* --- Formularios --- */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.9rem; /* <-- Letra un poco más pequeña en las etiquetas */
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px; /* <-- Bordes más redondeados para los campos */
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 1rem; /* La letra dentro del campo se mantiene a tamaño normal para legibilidad */
+}
+
+/* 1. Estilo por defecto para PANTALLAS PEQUEÑAS (Mobile-First) */
+.main-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alineado a la izquierda en móviles */
+}
+
+/* 2. Instrucción ESPECIAL para PANTALLAS MEDIANAS Y GRANDES */
+@media (min-width: 768px) {
+  .main-header .container {
+    align-items: center; /* Centrado en pantallas de 768px o más */
+  }
+}
+
+/* --- Estilos para el Fondo de Olas Animadas --- */
+
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%); /* Olas blancas semitransparentes */
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 50s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: 0; /* Lo ponemos detrás del contenido pero encima del fondo del body */
+}
+
+/* Segunda ola con diferente animación */
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 75s linear reverse infinite;
+  opacity: 0.8;
+}
+
+/* Tercera ola con diferente animación */
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 80s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+/* Definición de la animación de la ola */
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
+
+/* Asegúrate de que tu contenido principal esté por encima de las olas */
+.main-header, .container, .main-footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================== */
+/* === Estilos para Título Animado por Letras === */
+/* ============================================== */
+
+/* 1. Contenedor principal de la animación */
+.animate {
+  font-weight: 900;
+  font-size: 2.2rem; /* Tamaño similar a tu H1 original */
+}
+
+/* 2. Estilo base para cada letra (<span>) */
+.animate span {
+  display: inline-block;
+  position: relative; /* Necesario para la animación */
+}
+
+/* 3. Retraso escalonado para cada letra (¡esto crea el efecto!) */
+.animate span:nth-of-type(2) { animation-delay: .05s; }
+.animate span:nth-of-type(3) { animation-delay: .1s; }
+.animate span:nth-of-type(4) { animation-delay: .15s; }
+.animate span:nth-of-type(5) { animation-delay: .2s; }
+.animate span:nth-of-type(6) { animation-delay: .25s; }
+.animate span:nth-of-type(7) { animation-delay: .3s; }
+.animate span:nth-of-type(8) { animation-delay: .35s; }
+.animate span:nth-of-type(9) { animation-delay: .4s; }
+.animate span:nth-of-type(10) { animation-delay: .45s; }
+.animate span:nth-of-type(11) { animation-delay: .5s; }
+.animate span:nth-of-type(12) { animation-delay: .55s; }
+.animate span:nth-of-type(13) { animation-delay: .6s; }
+.animate span:nth-of-type(14) { animation-delay: .65s; }
+.animate span:nth-of-type(15) { animation-delay: .7s; }
+.animate span:nth-of-type(16) { animation-delay: .75s; }
+.animate span:nth-of-type(17) { animation-delay: .8s; }
+.animate span:nth-of-type(18) { animation-delay: .85s; }
+/* Continúa añadiendo más si tu título es más largo */
+
+
+/* 4. Estilos específicos para la Animación TRES */
+.three span {
+  color: var(--primary-color); /* Usa tu color primario */
+  opacity: 0;
+  transform: translate(-300px, 0) scale(0);
+  animation: sideSlide .5s forwards;
+}
+
+/* 5. Definición de la animación (@keyframes) */
+@keyframes sideSlide {
+  60% {
+    transform: translate(20px, 0) scale(1);
+    color: var(--primary-color); /* Mantiene el color primario */
+  }
+  80% {
+    transform: translate(20px, 0) scale(1);
+    color: var(--primary-color); /* Mantiene el color primario */
+  }
+  99% {
+    transform: translate(0) scale(1.2);
+    color: var(--accent-color); /* Cambia a tu color de acento */
+  }
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
+    color: var(--primary-color); /* Vuelve al color primario al final */
+  }
+}
